@@ -152,3 +152,4 @@ public class CustomController extends NiceVideoPlayerController {
 ![](https://github.com/xiaoyanger0825/NiceVieoPlayer/raw/master/images/bb.jpg)
 ![](https://github.com/xiaoyanger0825/NiceVieoPlayer/raw/master/images/cc.jpg)
 ![](https://github.com/xiaoyanger0825/NiceVieoPlayer/raw/master/images/dd.jpg)
+![](https://github.com/xiaoyanger0825/NiceVieoPlayer/raw/master/images/mix.png)
