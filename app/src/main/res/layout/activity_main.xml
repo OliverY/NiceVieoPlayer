@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:onClick="tinyWindow"
+        android:visibility="gone"
         android:text="小窗口"/>
 
     <Button
@@ -19,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:onClick="changeClarity"
+        android:visibility="gone"
         android:text="全屏切换清晰度"/>
 
     <Button
@@ -32,6 +34,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:onClick="mixVideoList"
+        android:text="mix视频列表"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
         android:onClick="useInFragment"
         android:text="在Fragment中使用"/>
 
@@ -39,6 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:visibility="gone"
         android:onClick="processHomeKeyInActivity"
         android:text="Activity中时处理播放时按下Home键"/>
 
@@ -46,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:visibility="gone"
         android:onClick="processHomeKeyInFragment"
         android:text="Fragment中时处理播放时按下Home键"/>
 </LinearLayout>

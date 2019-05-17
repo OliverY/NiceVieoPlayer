@@ -7,6 +7,7 @@ import android.graphics.SurfaceTexture;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Surface;
 import android.view.TextureView;
@@ -24,7 +25,7 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
  * Created by XiaoJianjun on 2017/4/28.
  * 播放器
  */
-public class NiceVideoPlayer extends FrameLayout
+public class NiceVideoPlayer extends PlayerView
         implements INiceVideoPlayer,
         TextureView.SurfaceTextureListener {
 
@@ -171,7 +172,7 @@ public class NiceVideoPlayer extends FrameLayout
     @Override
     public void start() {
         if (mCurrentState == STATE_IDLE) {
-            NiceVideoPlayerManager.instance().setCurrentNiceVideoPlayer(this);
+            NiceMediaPlayerManager.instance().setCurrentNiceVideoPlayer(this);
             initAudioManager();
             initMediaPlayer();
             initTextureView();
@@ -543,6 +544,7 @@ public class NiceVideoPlayer extends FrameLayout
         @Override
         public void onBufferingUpdate(IMediaPlayer mp, int percent) {
             mBufferPercentage = percent;
+            Log.e("yxj","percent:"+percent);
         }
     };
 
@@ -618,7 +620,7 @@ public class NiceVideoPlayer extends FrameLayout
         ViewGroup contentView = (ViewGroup) NiceUtil.scanForActivity(mContext)
                 .findViewById(android.R.id.content);
         // 小窗口的宽度为屏幕宽度的60%，长宽比默认为16:9，右边距、下边距为8dp。
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+        LayoutParams params = new LayoutParams(
                 (int) (NiceUtil.getScreenWidth(mContext) * 0.6f),
                 (int) (NiceUtil.getScreenWidth(mContext) * 0.6f * 9f / 16f));
         params.gravity = Gravity.BOTTOM | Gravity.END;

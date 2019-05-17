@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, RecyclerViewActivity.class));
     }
 
+    public void mixVideoList(View view) {
+        startActivity(new Intent(this, MixRecyclerViewActivity.class));
+    }
+
     public void changeClarity(View view) {
         startActivity(new Intent(this, ChangeClarityActivity.class));
     }

@@ -41,4 +41,5 @@ dependencies {
     testCompile rootProject.ext.dependencies.junit
     compile rootProject.ext.dependencies.recyclerview
     compile rootProject.ext.dependencies.glide
+    compile rootProject.ext.dependencies.basequickAdapter
 }

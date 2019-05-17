@@ -1,16 +1,23 @@
 package com.xiao.nicevieoplayer.example.bean;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+
 /**
  * Created by XiaoJianjun on 2017/5/21.
  * 视频
  */
-public class Video {
+public class Video implements MultiItemEntity{
     private String title;
     private long length;
     private String imageUrl;
     private String videoUrl;
 
-    public Video(String title, long length,String imageUrl, String videoUrl) {
+    public Video(long length, String videoUrl) {
+        this.length = length;
+        this.videoUrl = videoUrl;
+    }
+
+    public Video(String title, long length, String imageUrl, String videoUrl) {
         this.title = title;
         this.length = length;
         this.imageUrl = imageUrl;
@@ -47,5 +54,10 @@ public class Video {
 
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
+    }
+
+    @Override
+    public int getItemType() {
+        return Constant.TYPE_VIDEO;
     }
 }
