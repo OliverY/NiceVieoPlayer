@@ -663,8 +663,13 @@ public class NiceVideoPlayer extends PlayerView
             mAudioManager = null;
         }
         if (mMediaPlayer != null) {
-            mMediaPlayer.release();
-            mMediaPlayer = null;
+            new Thread(){
+                @Override
+                public void run() {
+                    mMediaPlayer.release();
+                    mMediaPlayer = null;
+                }
+            }.start();
         }
         mContainer.removeView(mTextureView);
         if (mSurface != null) {
