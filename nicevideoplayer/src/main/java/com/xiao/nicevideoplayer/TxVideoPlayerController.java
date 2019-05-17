@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.Image;
 import android.os.BatteryManager;
 import android.os.CountDownTimer;
 import android.support.annotation.DrawableRes;
@@ -54,6 +55,7 @@ public class TxVideoPlayerController
     private TextView mLength;
 
     private LinearLayout mLoading;
+    private ImageView mIconLoading;
     private TextView mLoadText;
 
     private LinearLayout mChangePositon;
@@ -112,6 +114,7 @@ public class TxVideoPlayerController
         mLength = (TextView) findViewById(R.id.length);
 
         mLoading = (LinearLayout) findViewById(R.id.loading);
+        mIconLoading = (ImageView) findViewById(R.id.loading_icon);
         mLoadText = (TextView) findViewById(R.id.load_text);
 
         mChangePositon = (LinearLayout) findViewById(R.id.change_position);
@@ -206,6 +209,7 @@ public class TxVideoPlayerController
             case NiceVideoPlayer.STATE_PREPARING:
                 mImage.setVisibility(View.GONE);
                 mLoading.setVisibility(View.VISIBLE);
+                NiceUtil.startAnim(getContext(),mIconLoading);
                 mLoadText.setText("正在准备...");
                 mError.setVisibility(View.GONE);
                 mCompleted.setVisibility(View.GONE);
@@ -219,22 +223,26 @@ public class TxVideoPlayerController
                 break;
             case NiceVideoPlayer.STATE_PLAYING:
                 mLoading.setVisibility(View.GONE);
+                NiceUtil.cancelAnim(mIconLoading);
                 mRestartPause.setImageResource(R.drawable.ic_player_pause);
                 startDismissTopBottomTimer();
                 break;
             case NiceVideoPlayer.STATE_PAUSED:
                 mLoading.setVisibility(View.GONE);
+                NiceUtil.cancelAnim(mIconLoading);
                 mRestartPause.setImageResource(R.drawable.ic_player_start);
                 cancelDismissTopBottomTimer();
                 break;
             case NiceVideoPlayer.STATE_BUFFERING_PLAYING:
                 mLoading.setVisibility(View.VISIBLE);
+                NiceUtil.startAnim(getContext(),mIconLoading);
                 mRestartPause.setImageResource(R.drawable.ic_player_pause);
                 mLoadText.setText("正在缓冲...");
                 startDismissTopBottomTimer();
                 break;
             case NiceVideoPlayer.STATE_BUFFERING_PAUSED:
                 mLoading.setVisibility(View.VISIBLE);
+                NiceUtil.startAnim(getContext(),mIconLoading);
                 mRestartPause.setImageResource(R.drawable.ic_player_start);
                 mLoadText.setText("正在缓冲...");
                 cancelDismissTopBottomTimer();
@@ -342,6 +350,7 @@ public class TxVideoPlayerController
         mBack.setVisibility(View.GONE);
 
         mLoading.setVisibility(View.GONE);
+        NiceUtil.cancelAnim(mIconLoading);
         mError.setVisibility(View.GONE);
         mCompleted.setVisibility(View.GONE);
     }

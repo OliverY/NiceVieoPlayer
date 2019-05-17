@@ -1,10 +1,15 @@
 package com.xiao.nicevideoplayer;
 
 import android.content.Context;
+import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -56,6 +61,7 @@ public class TxAudioPlayerController
                 Log.e("yxj","NiceVideoPlayer.STATE_IDLE");
                 mBtnPlay.setVisibility(View.VISIBLE);
                 mLoading.setVisibility(View.GONE);
+                NiceUtil.cancelAnim(mLoading);
                 mSeek.setEnabled(false);
                 mBtnPlay.setImageResource(R.drawable.icon_audio_play_start);
                 break;
@@ -68,6 +74,7 @@ public class TxAudioPlayerController
                   */
                 mBtnPlay.setVisibility(View.GONE);
                 mLoading.setVisibility(View.VISIBLE);
+                NiceUtil.startAnim(getContext(),mLoading);
                 mSeek.setEnabled(false);
 
                 break;
@@ -86,6 +93,7 @@ public class TxAudioPlayerController
                 mBtnPlay.setVisibility(View.VISIBLE);
                 mBtnPlay.setImageResource(R.drawable.icon_audio_play_pause);
                 mLoading.setVisibility(View.GONE);
+                NiceUtil.cancelAnim(mLoading);
                 mSeek.setEnabled(true);
 
                 break;
@@ -100,6 +108,7 @@ public class TxAudioPlayerController
                 mBtnPlay.setVisibility(View.VISIBLE);
                 mBtnPlay.setImageResource(R.drawable.icon_audio_play_start);
                 mLoading.setVisibility(View.GONE);
+                NiceUtil.cancelAnim(mLoading);
                 mSeek.setEnabled(true);
 
                 break;
@@ -113,6 +122,7 @@ public class TxAudioPlayerController
 
                 mBtnPlay.setVisibility(View.GONE);
                 mLoading.setVisibility(View.VISIBLE);
+                NiceUtil.startAnim(getContext(),mLoading);
                 mSeek.setEnabled(false);
 
                 break;
@@ -126,6 +136,7 @@ public class TxAudioPlayerController
 
                 mBtnPlay.setVisibility(View.GONE);
                 mLoading.setVisibility(View.VISIBLE);
+                NiceUtil.startAnim(getContext(),mLoading);
                 mSeek.setEnabled(false);
 
                 break;
@@ -135,6 +146,7 @@ public class TxAudioPlayerController
 
                 mBtnPlay.setVisibility(View.GONE);
                 mLoading.setVisibility(View.VISIBLE);
+                NiceUtil.startAnim(getContext(),mLoading);
                 mSeek.setEnabled(false);
                 break;
             case NiceVideoPlayer.STATE_COMPLETED:
@@ -149,6 +161,7 @@ public class TxAudioPlayerController
                 mBtnPlay.setVisibility(View.VISIBLE);
                 mBtnPlay.setImageResource(R.drawable.icon_audio_play_start);
                 mLoading.setVisibility(View.GONE);
+                NiceUtil.cancelAnim(mLoading);
                 mPosition.setText(NiceUtil.formatTime(0));
                 mSeek.setProgress(0);
                 mSeek.setEnabled(false);
@@ -171,6 +184,7 @@ public class TxAudioPlayerController
         mBtnPlay.setVisibility(View.VISIBLE);
         mBtnPlay.setImageResource(R.drawable.icon_audio_play_start);
         mLoading.setVisibility(View.GONE);
+        NiceUtil.cancelAnim(mLoading);
     }
 
     @Override

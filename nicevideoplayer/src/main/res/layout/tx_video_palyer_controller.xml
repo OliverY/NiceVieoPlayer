@@ -19,10 +19,17 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <ProgressBar
-            android:layout_width="27dp"
-            android:layout_height="10dp"
-            android:indeterminateDrawable="@drawable/loading"/>
+        <ImageView
+            android:id="@+id/loading_icon"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_loading_white"/>
+        
+        <!--<ProgressBar-->
+            <!--android:layout_width="27dp"-->
+            <!--android:layout_height="10dp"-->
+            <!--android:indeterminateDrawable="@drawable/loading"/>-->
 
         <TextView
             android:id="@+id/load_text"
@@ -149,6 +156,7 @@
             android:drawablePadding="4dp"
             android:padding="8dp"
             android:text="分享"
+            android:visibility="gone"
             android:textColor="@android:color/white"
             android:textSize="13sp"/>
     </LinearLayout>
@@ -260,21 +268,6 @@
             android:textColor="@android:color/white"
             android:textSize="12sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="/"
-            android:textColor="@android:color/white"
-            android:textSize="14sp"/>
-
-        <TextView
-            android:id="@+id/duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="00:00"
-            android:textColor="@android:color/white"
-            android:textSize="12sp"/>
-
         <SeekBar
             android:id="@+id/seek"
             android:layout_width="0dp"
@@ -287,6 +280,15 @@
             android:minHeight="1.5dp"
             android:progressDrawable="@drawable/seek_progress"
             android:thumb="@drawable/seek_thumb"/>
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:layout_marginRight="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/clarity"
@@ -315,6 +317,7 @@
         android:layout_marginRight="8dp"
         android:padding="4dp"
         android:text="00:00"
+        android:visibility="gone"
         android:textColor="@android:color/white"
         android:textSize="12sp"/>
     <!--中间开始播放按钮-->

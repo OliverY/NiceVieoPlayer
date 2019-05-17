@@ -7,7 +7,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
 import android.util.TypedValue;
+import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import java.util.Formatter;
 import java.util.Locale;
@@ -152,5 +155,15 @@ public class NiceUtil {
         return context.getSharedPreferences("NICE_VIDEO_PALYER_PLAY_POSITION",
                 Context.MODE_PRIVATE)
                 .getLong(url, 0);
+    }
+
+    public static void startAnim(Context context,View view){
+        Animation rotateAnim = AnimationUtils.loadAnimation(context,R.anim.rotate_anim_loading);
+        view.setAnimation(rotateAnim);
+        view.startAnimation(rotateAnim);
+    }
+
+    public static void cancelAnim(View view){
+        view.clearAnimation();
     }
 }
