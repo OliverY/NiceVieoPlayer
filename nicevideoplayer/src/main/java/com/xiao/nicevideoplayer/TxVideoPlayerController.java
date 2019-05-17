@@ -52,7 +52,7 @@ public class TxVideoPlayerController
     private TextView mClarity;
     private ImageView mFullScreen;
 
-    private TextView mLength;
+//    private TextView mLength;
 
     private LinearLayout mLoading;
     private ImageView mIconLoading;
@@ -111,7 +111,7 @@ public class TxVideoPlayerController
         mSeek = (SeekBar) findViewById(R.id.seek);
         mFullScreen = (ImageView) findViewById(R.id.full_screen);
         mClarity = (TextView) findViewById(R.id.clarity);
-        mLength = (TextView) findViewById(R.id.length);
+//        mLength = (TextView) findViewById(R.id.length);
 
         mLoading = (LinearLayout) findViewById(R.id.loading);
         mIconLoading = (ImageView) findViewById(R.id.loading_icon);
@@ -163,7 +163,7 @@ public class TxVideoPlayerController
 
     @Override
     public void setLenght(long length) {
-        mLength.setText(NiceUtil.formatTime(length));
+//        mLength.setText(NiceUtil.formatTime(length));
     }
 
     @Override
@@ -216,7 +216,7 @@ public class TxVideoPlayerController
                 mTop.setVisibility(View.GONE);
                 mBottom.setVisibility(View.GONE);
                 mCenterStart.setVisibility(View.GONE);
-                mLength.setVisibility(View.GONE);
+//                mLength.setVisibility(View.GONE);
                 break;
             case NiceVideoPlayer.STATE_PREPARED:
                 startUpdateProgressTimer();
@@ -344,7 +344,7 @@ public class TxVideoPlayerController
         mBottom.setVisibility(View.GONE);
         mFullScreen.setImageResource(R.drawable.ic_player_enlarge);
 
-        mLength.setVisibility(View.VISIBLE);
+//        mLength.setVisibility(View.VISIBLE);
 
         mTop.setVisibility(View.VISIBLE);
         mBack.setVisibility(View.GONE);

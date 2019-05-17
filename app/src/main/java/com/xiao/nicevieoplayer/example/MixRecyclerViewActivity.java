@@ -54,13 +54,11 @@ public class MixRecyclerViewActivity extends AppCompatActivity {
                     NiceAudioPlayer videoPlayer = ((BaseViewHolder)vh).getView(R.id.audio_view);
                     if (videoPlayer == NiceMediaPlayerManager.instance().getCurrentNiceVideoPlayer()) {
                         NiceMediaPlayerManager.instance().releaseNiceVideoPlayer();
-//                        videoPlayer.release();
                     }
                 }else if(item.getItemType() == Constant.TYPE_VIDEO){
                     NiceVideoPlayer videoPlayer = ((BaseViewHolder)vh).getView(R.id.player_video);
                     if (videoPlayer == NiceMediaPlayerManager.instance().getCurrentNiceVideoPlayer()) {
                         NiceMediaPlayerManager.instance().releaseNiceVideoPlayer();
-//                        videoPlayer.release();
                     }
                 }
             }

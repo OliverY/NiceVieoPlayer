@@ -69,8 +69,8 @@ public class MixAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity,BaseVi
         NiceVideoPlayer videoPlayer = helper.getView(R.id.player_video);
         videoPlayer.setController(controller);
 
-        controller.setTitle(item.getTitle());
-        controller.setLenght(item.getLength());
+//        controller.setTitle(item.getTitle());
+//        controller.setLenght(item.getLength());
         Glide.with(mContext)
                 .load(item.getImageUrl())
                 .placeholder(R.drawable.img_default)
